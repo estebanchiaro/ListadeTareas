@@ -10,7 +10,7 @@ window.addEventListener('load',()=>{
         const task = input.value;
 
         if(!task){
-            alert('please fill out the task');
+            alert('Ingresa Una Tarea');
             return
         }
 
@@ -72,23 +72,17 @@ window.addEventListener('load',()=>{
                 task_edit_el.innerText="Save";
             }
 
-        task_el.addEventListener('touchend',(e)=>{
-            if(task_edit_el.innerText='Save'){
-                task_edit_el.setAttribute('readonly','readonly')
-            }
-        
-        })
+       
       
         })
 
-        task_edit_el.addEventListener('keypress',(e)=>{
-            if(task_edit_el.innerText.toLocaleLowerCase()=='save')
-            {
-                task_edit_el.innerText='Edit'
-                task_input_el.setAttribute('readonly','readonly')
-            }
-        })
 
+        //Problema!!!//
+        task_input_el.addEventListener('keypress',(e)=>{
+            if(e.key === "Enter"){
+            task_edit_el.innerText="Edit"
+            task_input_el.setAttribute('readonly','readonly')}
+        })
 
         task_delete_el.addEventListener('click',(e)=>{
             list_el.removeChild(task_el)
